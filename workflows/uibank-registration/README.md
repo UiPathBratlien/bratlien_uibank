@@ -2,6 +2,8 @@
 
 This folder is a UiPath process scaffold for the live UiBank registration flow documented in `research/uibank-registration-flow.md` and `research/field-map.md`.
 
+Use `MAIN-WIRING.md` for the recommended argument schema and orchestration pattern for `Main.xaml`.
+
 ## Intended Workflow Breakdown
 
 - `Main.xaml` orchestrates the end-to-end path
