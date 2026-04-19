@@ -17,8 +17,10 @@
 
 ## Site Understanding
 
-- [ ] Document the registration page flow in `research/`
-- [ ] Capture important field names, labels, and validation rules
+- [x] Create initial registration flow notes in `research/`
+- [x] Create initial field map in `research/`
+- [ ] Validate the registration flow against the live UiBank site
+- [ ] Capture important field names, labels, and validation rules from the live site
 - [ ] Note timing issues, popups, redirects, or dynamic behavior
 - [ ] Record assumptions the automation depends on
 
