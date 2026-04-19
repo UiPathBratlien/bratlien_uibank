@@ -9,6 +9,12 @@ This note captures the current understanding of the UiBank registration workflow
 - UiBank is available at `https://uibank.uipath.com/`.
 - A scanned entry point for the site is `https://uibank.uipath.com/welcome`.
 - The scanned page title for that entry point was `UiBank-Welcome`.
+- The live welcome page bundle currently exposes a login form with `Username` and `Password` fields and a `Sign In` button.
+- The live welcome page bundle links `Forgot Your Password?` to `/password-request`.
+- The live welcome page bundle links `Register For Account` to `/register-account`.
+- The live welcome page bundle also exposes a `Get Started` call to action that routes to `/register-account`.
+- The live welcome page bundle exposes an `Apply Now` path to `/accounts/account-apply`.
+- The live welcome page bundle includes a privacy-policy dialog that says UiBank is for demo purposes and that email is used for official communications and password recovery.
 - UiPath Marketplace includes automation templates described as creating a UiBank account based on an email address and then sending login details to the provided email address.
 - A UiPath employee described UiBank in the community forum as a free environment for learners to experiment with UiPath Test Suite.
 
@@ -37,6 +43,7 @@ This is an inference from public UiPath Marketplace descriptions and should be v
 ## What To Verify Manually
 
 - exact registration entry point
+- whether `/register-account` is the full new-user registration form or an intermediate screen
 - whether registration starts from the welcome page or a separate sign-up page
 - required fields
 - optional fields
@@ -56,9 +63,10 @@ This is an inference from public UiPath Marketplace descriptions and should be v
 ## Suggested Next Evidence To Capture
 
 1. A direct manual walkthrough of registration.
-2. Screenshots or notes for each step.
-3. Field labels and validation messages.
-4. A sample successful outcome and one intentional failure case.
+2. The user-facing labels and controls on `/register-account`.
+3. Screenshots or notes for each step.
+4. Field labels and validation messages.
+5. A sample successful outcome and one intentional failure case.
 
 ## Sources
 

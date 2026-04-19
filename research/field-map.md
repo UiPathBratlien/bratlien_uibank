@@ -9,6 +9,18 @@ This field map is intentionally split into confirmed information and unknowns. A
 | Field | Status | Notes |
 | --- | --- | --- |
 | Email address | Likely required | UiPath Marketplace descriptions for UiBank account creation say the account is created based on an email address and that login details are sent to that address. |
+| Username | Confirmed on welcome/login page | The live welcome-page bundle exposes a `Username` field for sign-in. This confirms login uses a username field, but not yet whether registration also asks for a separate username. |
+| Password | Confirmed on welcome/login page | The live welcome-page bundle exposes a `Password` field for sign-in. This does not yet confirm whether new-user registration sets a password directly or relies on an emailed credential flow. |
+
+## Confirmed Navigation And Action Controls
+
+| Screen | Control | Observed target or behavior |
+| --- | --- | --- |
+| Welcome | `Sign In` | submits the login form |
+| Welcome | `Forgot Your Password?` | routes to `/password-request` |
+| Welcome | `Register For Account` | routes to `/register-account` |
+| Welcome | `Get Started` | routes to `/register-account` |
+| Welcome | `Apply Now` | routes to `/accounts/account-apply` |
 
 ## Unknown Inputs To Capture From The Live Site
 
@@ -23,6 +35,14 @@ This field map is intentionally split into confirmed information and unknowns. A
 | Address fields | May appear in banking-style demo forms | line breakdown and requiredness |
 | Consent checkbox | Often blocks submit | exact text and default state |
 | Verification code or email link | May be part of completion | inbox dependency and timeout expectations |
+
+## Confirmed Policy And Consent Clue
+
+The live welcome-page bundle includes a privacy dialog stating that UiBank is for demo purposes and that email is used for official communications and password recovery. That strongly suggests:
+
+- email remains part of the workflow even if username is used for login
+- a consent or acknowledgement step may appear before login or registration completes
+- password recovery is a supported path in the app
 
 ## Validation Messages To Capture
 
