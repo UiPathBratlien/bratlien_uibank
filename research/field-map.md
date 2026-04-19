@@ -8,9 +8,19 @@ This field map is intentionally split into confirmed information and unknowns. A
 
 | Field | Status | Notes |
 | --- | --- | --- |
-| Email address | Likely required | UiPath Marketplace descriptions for UiBank account creation say the account is created based on an email address and that login details are sent to that address. |
-| Username | Confirmed on welcome/login page | The live welcome-page bundle exposes a `Username` field for sign-in. This confirms login uses a username field, but not yet whether registration also asks for a separate username. |
-| Password | Confirmed on welcome/login page | The live welcome-page bundle exposes a `Password` field for sign-in. This does not yet confirm whether new-user registration sets a password directly or relies on an emailed credential flow. |
+| Email address | Confirmed and required | Label is `Email Address*`; placeholder is `Enter Email Address`. |
+| Password | Confirmed and required | Label is `Password*`; placeholder is `Password`. |
+| First name | Confirmed | Label is `First Name`; placeholder is `Enter your first name`. |
+| Last name | Confirmed | Label is `Last Name`; placeholder is `Enter your last name`. |
+| Middle name | Confirmed | Label is `Middle Name Or Initial`; placeholder is `Enter your middle name or initial`. |
+| Sex | Confirmed and required | Label is `Sex*`; options are `male`, `female`. |
+| Title | Confirmed and required | Label is `Title*`; options are `ms`, `mrs`, `mr`. |
+| Employment status | Confirmed and required | Label is `Employment Status*`; options are `Full-time`, `Part-time`, `Unemployed`. |
+| Date of birth | Confirmed | Label is `Date of birth (MM/DD/YY)`; placeholder is `Enter date in MM/DD/YY format`. |
+| Marital status | Confirmed and required | Label is `Marital Status*`; options are `Single`, `Married`, `Divorced`, `Widowed`. |
+| Number of dependents | Confirmed | Label is `Number of Dependents`; placeholder is `How many dependents do you claim?`. |
+| Username | Confirmed and required | Label is `Username*`; placeholder is `Enter your username`. |
+| Privacy confirmation checkbox | Confirmed and required for submit | Text begins `I confirm that I agree to the Privacy Policy`; the `Register` button stays disabled until checked. |
 
 ## Confirmed Navigation And Action Controls
 
@@ -21,20 +31,21 @@ This field map is intentionally split into confirmed information and unknowns. A
 | Welcome | `Register For Account` | routes to `/register-account` |
 | Welcome | `Get Started` | routes to `/register-account` |
 | Welcome | `Apply Now` | routes to `/accounts/account-apply` |
+| Register | `Register` | submits the registration form |
+| Register success | success route | `/register-account/success/:username` |
 
-## Unknown Inputs To Capture From The Live Site
+## Fields Not Observed In The Current Register Chunk
 
-| Field | Why It Matters | What To Record |
-| --- | --- | --- |
-| First name | Common registration input | label text, required or optional, validation |
-| Last name | Common registration input | label text, required or optional, validation |
-| Username | May be distinct from email | allowed characters, uniqueness behavior |
-| Password | Needed for robust automation if user-set | complexity rules, masking, confirm-password behavior |
-| Confirm password | Common paired field | mismatch validation |
-| Phone number | Possible contact field | format and validation |
-| Address fields | May appear in banking-style demo forms | line breakdown and requiredness |
-| Consent checkbox | Often blocks submit | exact text and default state |
-| Verification code or email link | May be part of completion | inbox dependency and timeout expectations |
+These fields were not visible in the current live registration chunk and should not be assumed without a direct browser walkthrough:
+
+- phone number
+- street address
+- city
+- state
+- zip code
+- confirm password
+- SSN
+- verification code entry field
 
 ## Confirmed Policy And Consent Clue
 
@@ -44,6 +55,8 @@ The live welcome-page bundle includes a privacy dialog stating that UiBank is fo
 - a consent or acknowledgement step may appear before login or registration completes
 - password recovery is a supported path in the app
 
+The live registration page reinforces this with a visible notice saying only the email should be real and all other registration data should be dummy data.
+
 ## Validation Messages To Capture
 
 - required field errors
@@ -52,6 +65,7 @@ The live welcome-page bundle includes a privacy dialog stating that UiBank is fo
 - password complexity feedback
 - submit blocked by missing consent
 - expired or missing verification flow
+- server-side registration error message shown in an alert dialog
 
 ## Selector And Automation Notes
 
@@ -77,6 +91,7 @@ This file is ready for automation use once it includes:
 - every blocking validation rule
 - the success condition for registration
 - any inbox or verification dependency
+- any mismatch between the live rendered UI and the bundle-derived findings
 
 ## Sources
 
