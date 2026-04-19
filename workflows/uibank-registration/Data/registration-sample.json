@@ -1,0 +1,15 @@
+{
+  "email": "your-real-email@example.com",
+  "password": "YourPassword123!",
+  "firstName": "Test",
+  "lastName": "User",
+  "middleName": "Q",
+  "gender": "male",
+  "title": "mr",
+  "employmentStatus": "Full-time",
+  "age": "01/15/90",
+  "maritalStatus": "Single",
+  "numberOfDependents": 0,
+  "username": "test_user_001",
+  "agreeToPrivacyPolicy": true
+}

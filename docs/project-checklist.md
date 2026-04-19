@@ -10,7 +10,7 @@
 
 - [ ] Define the exact registration scenario to automate
 - [ ] Identify required inputs and expected outputs
-- [ ] Create the initial UiPath workflow project in `workflows/`
+- [x] Create the initial UiPath workflow scaffold in `workflows/`
 - [ ] Implement the happy-path registration flow
 - [ ] Add basic error handling and retries
 - [ ] Test the workflow end to end
